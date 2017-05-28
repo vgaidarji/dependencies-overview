@@ -4,9 +4,12 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 class DependenciesOverviewPlugin : Plugin<Project> {
-    private val TASK_NAME = "dependenciesOverview"
+    
+    companion object {
+        const val DEPENDENCIES_OVERVIEW_TASK = "dependenciesOverview"
+    }
 
     override fun apply(project: Project) {
-        project.tasks?.create(TASK_NAME, DependenciesOverviewTask::class.java)
+        project.tasks?.create(DEPENDENCIES_OVERVIEW_TASK, DependenciesOverviewTask::class.java)
     }
 }
