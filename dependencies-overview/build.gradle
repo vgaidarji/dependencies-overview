@@ -12,4 +12,7 @@ dependencies {
     compile localGroovy()
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'com.natpryce', name: 'hamkrest', version: '1.4.0.0'
+    testCompile 'org.amshove.kluent:kluent:1.20'
+    testCompile "com.nhaarman:mockito-kotlin:1.4.0"
 }
