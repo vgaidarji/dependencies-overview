@@ -1,6 +1,6 @@
 package com.vgaidarji.dependencies.overview
 
-import groovy.json.JsonOutput
+import com.vgaidarji.dependencies.overview.writer.JsonWriter
 import org.gradle.api.DefaultTask
 import org.gradle.api.artifacts.ResolvedModuleVersion
 import org.gradle.api.tasks.TaskAction
@@ -14,7 +14,7 @@ open class DependenciesOverviewTask : DefaultTask() {
 
     @TaskAction
     fun generate() {
-        println(asJson(getArtifactsForConfiguration()))
+        JsonWriter().write(getArtifactsForConfiguration())
     }
 
     fun getArtifactsForConfiguration(configuration: String = "compile") :
@@ -26,14 +26,5 @@ open class DependenciesOverviewTask : DefaultTask() {
         }
         return artifacts
     }
-
-    private fun asJson(artifacts: MutableList<ResolvedModuleVersion>): String {
-        var json = "{\n\"dependencies\": ["
-        artifacts.forEachIndexed { index, resolvedModuleVersion ->
-            // println "group: ${id.group}, name: ${id.name}, version: ${id.version}"
-            if (index > 0) json = json.plus(",")
-            json = json.plus(JsonOutput.toJson(resolvedModuleVersion.id))
-        }
-        return JsonOutput.prettyPrint(json.plus("]\n}"))
-    }
 }
+

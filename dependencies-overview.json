@@ -1,0 +1,94 @@
+{
+    "dependencies": [
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "appcompat-v7",
+            "module": {
+                "group": "com.android.support",
+                "name": "appcompat-v7"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "support-annotations",
+            "module": {
+                "group": "com.android.support",
+                "name": "support-annotations"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "support-v4",
+            "module": {
+                "group": "com.android.support",
+                "name": "support-v4"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "support-vector-drawable",
+            "module": {
+                "group": "com.android.support",
+                "name": "support-vector-drawable"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "animated-vector-drawable",
+            "module": {
+                "group": "com.android.support",
+                "name": "animated-vector-drawable"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "support-compat",
+            "module": {
+                "group": "com.android.support",
+                "name": "support-compat"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "support-media-compat",
+            "module": {
+                "group": "com.android.support",
+                "name": "support-media-compat"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "support-core-utils",
+            "module": {
+                "group": "com.android.support",
+                "name": "support-core-utils"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "support-core-ui",
+            "module": {
+                "group": "com.android.support",
+                "name": "support-core-ui"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "support-fragment",
+            "module": {
+                "group": "com.android.support",
+                "name": "support-fragment"
+            }
+        }
+    ]
+}
