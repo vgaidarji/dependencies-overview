@@ -1,6 +1,7 @@
 package com.vgaidarji.dependencies.overview
 
 import com.vgaidarji.dependencies.overview.writer.JsonWriter
+import com.vgaidarji.dependencies.overview.writer.MarkdownWriter
 import org.gradle.api.DefaultTask
 import org.gradle.api.artifacts.ResolvedModuleVersion
 import org.gradle.api.tasks.TaskAction
@@ -15,6 +16,7 @@ open class DependenciesOverviewTask : DefaultTask() {
     @TaskAction
     fun generate() {
         JsonWriter().write(getArtifactsForConfiguration())
+        MarkdownWriter().write(getArtifactsForConfiguration())
     }
 
     fun getArtifactsForConfiguration(configuration: String = "compile") :

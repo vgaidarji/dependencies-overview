@@ -1,0 +1,12 @@
+| Dependency                                   | Version |
+| -------------------------------------------- | ------- |
+| com.android.support:appcompat-v7             | 25.3.1  |
+| com.android.support:support-annotations      | 25.3.1  |
+| com.android.support:support-v4               | 25.3.1  |
+| com.android.support:support-vector-drawable  | 25.3.1  |
+| com.android.support:animated-vector-drawable | 25.3.1  |
+| com.android.support:support-compat           | 25.3.1  |
+| com.android.support:support-media-compat     | 25.3.1  |
+| com.android.support:support-core-utils       | 25.3.1  |
+| com.android.support:support-core-ui          | 25.3.1  |
+| com.android.support:support-fragment         | 25.3.1  |
