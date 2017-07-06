@@ -16,7 +16,7 @@ class JsonWriter: DependenciesWriter<MutableList<ResolvedModuleVersion>> {
     }
 
     private fun artifactsToJson(artifacts: MutableList<ResolvedModuleVersion>): String {
-        var json = "{\n$PARENT_TAG: ["
+        var json = "{\n\"$PARENT_TAG\": ["
         artifacts.forEachIndexed { index, resolvedModuleVersion ->
             if (index > 0) json = json.plus(",")
             json = json.plus(JsonOutput.toJson(resolvedModuleVersion.id))

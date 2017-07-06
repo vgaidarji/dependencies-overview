@@ -15,8 +15,14 @@ open class DependenciesOverviewTask : DefaultTask() {
 
     @TaskAction
     fun generate() {
-        JsonWriter().write(getArtifactsForConfiguration())
-        MarkdownWriter().write(getArtifactsForConfiguration())
+        val extension = project.extensions.getByName(DependenciesOverviewPlugin.EXTENSION)
+            as DependenciesOverviewExtension
+        if (extension.output.json) {
+            JsonWriter().write(getArtifactsForConfiguration())
+        }
+        if (extension.output.markdown) {
+            MarkdownWriter().write(getArtifactsForConfiguration())
+        }
     }
 
     fun getArtifactsForConfiguration(configuration: String = "compile") :
