@@ -4,7 +4,6 @@ import net.steppschuh.markdowngenerator.table.Table
 import org.gradle.api.artifacts.ResolvedModuleVersion
 
 class MarkdownWriter: DependenciesWriter<MutableList<ResolvedModuleVersion>> {
-
     companion object {
         const val OUTPUT_FILE_NAME = "DEPENDENCIES-OVERVIEW.md"
         const val GROUP = "Group"

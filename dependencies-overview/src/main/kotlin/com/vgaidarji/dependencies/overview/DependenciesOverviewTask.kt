@@ -3,11 +3,9 @@ package com.vgaidarji.dependencies.overview
 import com.vgaidarji.dependencies.overview.writer.JsonWriter
 import com.vgaidarji.dependencies.overview.writer.MarkdownWriter
 import org.gradle.api.DefaultTask
-import org.gradle.api.artifacts.ResolvedModuleVersion
 import org.gradle.api.tasks.TaskAction
 
 open class DependenciesOverviewTask : DefaultTask() {
-
     init {
         description = "Generates project dependencies overview table from project dependencies"
         group = "documentation"
@@ -17,22 +15,12 @@ open class DependenciesOverviewTask : DefaultTask() {
     fun generate() {
         val extension = project.extensions.getByName(DependenciesOverviewPlugin.EXTENSION)
             as DependenciesOverviewExtension
+        val artifacts = ArtifactsResolver(project).resolve()
         if (extension.output.json) {
-            JsonWriter().write(getArtifactsForConfiguration())
+            JsonWriter().write(artifacts)
         }
         if (extension.output.markdown) {
-            MarkdownWriter().write(getArtifactsForConfiguration())
+            MarkdownWriter().write(artifacts)
         }
-    }
-
-    fun getArtifactsForConfiguration(configuration: String = "compile") :
-            MutableList<ResolvedModuleVersion> {
-        val artifacts = mutableListOf<ResolvedModuleVersion>()
-        val config = project.configurations.getByName(configuration).resolvedConfiguration
-        config.resolvedArtifacts.forEach {
-            artifacts.add(it.moduleVersion)
-        }
-        return artifacts
     }
 }
-

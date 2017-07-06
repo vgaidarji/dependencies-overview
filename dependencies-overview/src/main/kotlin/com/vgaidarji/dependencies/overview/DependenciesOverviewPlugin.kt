@@ -4,7 +4,6 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 class DependenciesOverviewPlugin : Plugin<Project> {
-    
     companion object {
         const val DEPENDENCIES_OVERVIEW_TASK = "dependenciesOverview"
         const val EXTENSION = "dependenciesOverview"
