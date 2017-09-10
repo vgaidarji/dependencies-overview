@@ -12,13 +12,21 @@ class MarkdownWriter : DependenciesWriter<List<ResolvedModuleVersion>> {
     }
 
     override fun write(artifacts: List<ResolvedModuleVersion>) {
+        // TODO parametrize task and print to console conditionally
+        writeToFile(OUTPUT_FILE_NAME, artifactsToMarkdownTable(artifacts).toString())
+    }
+
+    override fun write(folder: String, artifacts: List<ResolvedModuleVersion>) {
+        writeToFile(folder, OUTPUT_FILE_NAME, artifactsToMarkdownTable(artifacts).toString())
+    }
+
+    private fun artifactsToMarkdownTable(artifacts: List<ResolvedModuleVersion>): Table {
         val builder = Table.Builder()
                 .withAlignments(Table.ALIGN_LEFT, Table.ALIGN_LEFT)
                 .addRow(GROUP, NAME, VERSION)
         artifacts.forEach {
             builder.addRow(it.id.group, it.id.name, it.id.version)
         }
-        // TODO parametrize task and print to console conditionally
-        writeToFile(OUTPUT_FILE_NAME, builder.build().toString())
+        return builder.build()
     }
 }

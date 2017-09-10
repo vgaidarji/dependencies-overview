@@ -14,6 +14,10 @@ class JsonWriter : DependenciesWriter<List<ResolvedModuleVersion>> {
         writeToFile(OUTPUT_FILE_NAME, artifactsToJson(artifacts))
     }
 
+    override fun write(folder: String, artifacts: List<ResolvedModuleVersion>) {
+        writeToFile(folder, OUTPUT_FILE_NAME, artifactsToJson(artifacts))
+    }
+
     private fun artifactsToJson(artifacts: List<ResolvedModuleVersion>): String {
         var json = "{\n\"$PARENT_TAG\": ["
         artifacts.forEachIndexed { index, resolvedModuleVersion ->

@@ -17,10 +17,10 @@ open class DependenciesOverviewTask : DefaultTask() {
                 as DependenciesOverviewExtension
         val artifacts = ArtifactsResolver(project).resolve()
         if (extension.output.json) {
-            JsonWriter().write(artifacts)
+            JsonWriter().write(extension.output.folder, artifacts)
         }
         if (extension.output.markdown) {
-            MarkdownWriter().write(artifacts)
+            MarkdownWriter().write(extension.output.folder, artifacts)
         }
     }
 }

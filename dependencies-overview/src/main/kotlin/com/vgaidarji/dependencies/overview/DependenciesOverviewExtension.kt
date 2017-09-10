@@ -17,5 +17,12 @@ open class DependenciesOverviewExtension {
          * Disabled by default.
          */
         var json = false
+
+        /**
+         * Folder name where dependencies will be written (relative to the project).
+         * By default files with dependencies will be located on project root level.
+         * E.g.: "build/reports".
+         */
+        var folder: String = ""
     }
 }
