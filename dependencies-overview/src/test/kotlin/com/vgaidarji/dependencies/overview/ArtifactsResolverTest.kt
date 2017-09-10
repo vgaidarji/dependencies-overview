@@ -1,26 +1,12 @@
 package com.vgaidarji.dependencies.overview
 
-import com.nhaarman.mockito_kotlin.any
-import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.spy
-import com.nhaarman.mockito_kotlin.whenever
-import com.vgaidarji.dependencies.overview.TestArtifact.GOOGLE_ANDROID_PLAY_SERVICES_ADS
-import com.vgaidarji.dependencies.overview.TestArtifact.GOOGLE_ANDROID_PLAY_SERVICES_BASE
-import com.vgaidarji.dependencies.overview.TestArtifact.GOOGLE_GSON
-import com.vgaidarji.dependencies.overview.TestArtifact.GOOGLE_GUAVA
-import com.vgaidarji.dependencies.overview.TestArtifact.JODA_TIME
-import com.vgaidarji.dependencies.overview.TestArtifact.SLF4J
-import org.amshove.kluent.shouldContain
-import org.gradle.api.Project
-import org.gradle.api.artifacts.Configuration
-import org.gradle.api.artifacts.ConfigurationContainer
-import org.gradle.api.artifacts.ResolvedConfiguration
-import org.gradle.testfixtures.ProjectBuilder
-import org.junit.Test
+import com.vgaidarji.dependencies.overview.TestArtifact.*
 import junit.framework.TestCase.assertTrue
+import org.amshove.kluent.shouldContain
 import org.amshove.kluent.shouldNotContain
+import org.junit.Test
 
-class ArtifactsResolverTest {
+class ArtifactsResolverTest : BaseTest() {
 
     @Test
     fun `resolves artifacts for default configuration`() {
@@ -63,18 +49,5 @@ class ArtifactsResolverTest {
                     + "but was ${artifacts[index].id.group}:${artifacts[index].id.name}",
                     artifacts[index] == version)
         }
-    }
-
-    private fun projectWithArtifacts(vararg artifacts: TestArtifact): Project {
-        val project: Project = spy(ProjectBuilder.builder().build())
-        val configurationContainer = mock<ConfigurationContainer>()
-        val configuration = mock<Configuration>()
-        val resolvedConfiguration = mock<ResolvedConfiguration>()
-        val resolvedArtifacts = artifacts.map { it.resolvedArtifact }.toSet()
-        whenever(resolvedConfiguration.resolvedArtifacts).thenReturn(resolvedArtifacts)
-        whenever(configuration.resolvedConfiguration).thenReturn(resolvedConfiguration)
-        whenever(configurationContainer.getByName(any())).thenReturn(configuration)
-        whenever(project.configurations).thenReturn(configurationContainer)
-        return project
     }
 }

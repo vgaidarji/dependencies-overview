@@ -3,7 +3,7 @@ package com.vgaidarji.dependencies.overview.writer
 import groovy.json.JsonOutput
 import org.gradle.api.artifacts.ResolvedModuleVersion
 
-class JsonWriter : DependenciesWriter<List<ResolvedModuleVersion>> {
+open class JsonWriter : DependenciesWriter<List<ResolvedModuleVersion>> {
     companion object {
         const val OUTPUT_FILE_NAME = "DEPENDENCIES-OVERVIEW.json"
         const val PARENT_TAG = "dependencies"

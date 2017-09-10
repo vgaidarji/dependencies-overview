@@ -3,7 +3,7 @@ package com.vgaidarji.dependencies.overview.writer
 import net.steppschuh.markdowngenerator.table.Table
 import org.gradle.api.artifacts.ResolvedModuleVersion
 
-class MarkdownWriter : DependenciesWriter<List<ResolvedModuleVersion>> {
+open class MarkdownWriter : DependenciesWriter<List<ResolvedModuleVersion>> {
     companion object {
         const val OUTPUT_FILE_NAME = "DEPENDENCIES-OVERVIEW.md"
         const val GROUP = "Group"
