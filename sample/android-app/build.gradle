@@ -32,7 +32,7 @@ android {
 
 dependenciesOverview {
     output.json = true
-    output.markdown = false
+    output.markdown = true
 }
 
 dependencies {
