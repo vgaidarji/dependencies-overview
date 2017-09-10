@@ -14,7 +14,7 @@ class JsonWriter : DependenciesWriter<List<ResolvedModuleVersion>> {
         writeToFile(OUTPUT_FILE_NAME, artifactsToJson(artifacts))
     }
 
-    override fun write(folder: String, artifacts: List<ResolvedModuleVersion>) {
+    override fun write(folder: String?, artifacts: List<ResolvedModuleVersion>) {
         writeToFile(folder, OUTPUT_FILE_NAME, artifactsToJson(artifacts))
     }
 
