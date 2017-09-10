@@ -3,7 +3,7 @@ package com.vgaidarji.dependencies.overview.writer
 import net.steppschuh.markdowngenerator.table.Table
 import org.gradle.api.artifacts.ResolvedModuleVersion
 
-class MarkdownWriter: DependenciesWriter<MutableList<ResolvedModuleVersion>> {
+class MarkdownWriter : DependenciesWriter<List<ResolvedModuleVersion>> {
     companion object {
         const val OUTPUT_FILE_NAME = "DEPENDENCIES-OVERVIEW.md"
         const val GROUP = "Group"
@@ -11,7 +11,7 @@ class MarkdownWriter: DependenciesWriter<MutableList<ResolvedModuleVersion>> {
         const val VERSION = "Version"
     }
 
-    override fun write(artifacts: MutableList<ResolvedModuleVersion>) {
+    override fun write(artifacts: List<ResolvedModuleVersion>) {
         val builder = Table.Builder()
                 .withAlignments(Table.ALIGN_LEFT, Table.ALIGN_LEFT)
                 .addRow(GROUP, NAME, VERSION)

@@ -14,7 +14,7 @@ open class DependenciesOverviewTask : DefaultTask() {
     @TaskAction
     fun generate() {
         val extension = project.extensions.getByName(DependenciesOverviewPlugin.EXTENSION)
-            as DependenciesOverviewExtension
+                as DependenciesOverviewExtension
         val artifacts = ArtifactsResolver(project).resolve()
         if (extension.output.json) {
             JsonWriter().write(artifacts)

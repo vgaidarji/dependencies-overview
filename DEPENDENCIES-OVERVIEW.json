@@ -3,127 +3,19 @@
         {
             "group": "com.android.support",
             "version": "25.3.1",
+            "name": "animated-vector-drawable",
+            "module": {
+                "group": "com.android.support",
+                "name": "animated-vector-drawable"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
             "name": "appcompat-v7",
             "module": {
                 "group": "com.android.support",
                 "name": "appcompat-v7"
-            }
-        },
-        {
-            "group": "com.google.code.gson",
-            "version": "2.2.4",
-            "name": "gson",
-            "module": {
-                "group": "com.google.code.gson",
-                "name": "gson"
-            }
-        },
-        {
-            "group": "org.slf4j",
-            "version": "1.7.7",
-            "name": "slf4j-android",
-            "module": {
-                "group": "org.slf4j",
-                "name": "slf4j-android"
-            }
-        },
-        {
-            "group": "com.squareup.picasso",
-            "version": "2.3.2",
-            "name": "picasso",
-            "module": {
-                "group": "com.squareup.picasso",
-                "name": "picasso"
-            }
-        },
-        {
-            "group": "joda-time",
-            "version": "2.3",
-            "name": "joda-time",
-            "module": {
-                "group": "joda-time",
-                "name": "joda-time"
-            }
-        },
-        {
-            "group": "com.squareup",
-            "version": "1.3.5",
-            "name": "otto",
-            "module": {
-                "group": "com.squareup",
-                "name": "otto"
-            }
-        },
-        {
-            "group": "de.keyboardsurfer.android.widget",
-            "version": "1.8.4",
-            "name": "crouton",
-            "module": {
-                "group": "de.keyboardsurfer.android.widget",
-                "name": "crouton"
-            }
-        },
-        {
-            "group": "com.nineoldandroids",
-            "version": "2.4.0",
-            "name": "library",
-            "module": {
-                "group": "com.nineoldandroids",
-                "name": "library"
-            }
-        },
-        {
-            "group": "com.jakewharton",
-            "version": "5.1.1",
-            "name": "butterknife",
-            "module": {
-                "group": "com.jakewharton",
-                "name": "butterknife"
-            }
-        },
-        {
-            "group": "com.google.guava",
-            "version": "16.0.1",
-            "name": "guava",
-            "module": {
-                "group": "com.google.guava",
-                "name": "guava"
-            }
-        },
-        {
-            "group": "com.squareup.okhttp",
-            "version": "2.0.0",
-            "name": "okhttp",
-            "module": {
-                "group": "com.squareup.okhttp",
-                "name": "okhttp"
-            }
-        },
-        {
-            "group": "com.squareup.dagger",
-            "version": "1.2.1",
-            "name": "dagger",
-            "module": {
-                "group": "com.squareup.dagger",
-                "name": "dagger"
-            }
-        },
-        {
-            "group": "com.google.android.gms",
-            "version": "11.0.0",
-            "name": "play-services-ads",
-            "module": {
-                "group": "com.google.android.gms",
-                "name": "play-services-ads"
-            }
-        },
-        {
-            "group": "com.google.android.gms",
-            "version": "11.0.0",
-            "name": "play-services-maps",
-            "module": {
-                "group": "com.google.android.gms",
-                "name": "play-services-maps"
             }
         },
         {
@@ -137,110 +29,20 @@
         },
         {
             "group": "com.android.support",
-            "version": "25.3.1",
-            "name": "support-v4",
+            "version": "26.0.0-alpha1",
+            "name": "recyclerview-v7",
             "module": {
                 "group": "com.android.support",
-                "name": "support-v4"
+                "name": "recyclerview-v7"
             }
         },
         {
             "group": "com.android.support",
-            "version": "25.3.1",
-            "name": "support-vector-drawable",
+            "version": "26.0.0-alpha1",
+            "name": "support-annotations",
             "module": {
                 "group": "com.android.support",
-                "name": "support-vector-drawable"
-            }
-        },
-        {
-            "group": "com.android.support",
-            "version": "25.3.1",
-            "name": "animated-vector-drawable",
-            "module": {
-                "group": "com.android.support",
-                "name": "animated-vector-drawable"
-            }
-        },
-        {
-            "group": "org.slf4j",
-            "version": "1.7.7",
-            "name": "slf4j-api",
-            "module": {
-                "group": "org.slf4j",
-                "name": "slf4j-api"
-            }
-        },
-        {
-            "group": "com.squareup.okio",
-            "version": "1.0.0",
-            "name": "okio",
-            "module": {
-                "group": "com.squareup.okio",
-                "name": "okio"
-            }
-        },
-        {
-            "group": "javax.inject",
-            "version": "1",
-            "name": "javax.inject",
-            "module": {
-                "group": "javax.inject",
-                "name": "javax.inject"
-            }
-        },
-        {
-            "group": "com.google.android.gms",
-            "version": "11.0.0",
-            "name": "play-services-ads-lite",
-            "module": {
-                "group": "com.google.android.gms",
-                "name": "play-services-ads-lite"
-            }
-        },
-        {
-            "group": "com.google.android.gms",
-            "version": "11.0.0",
-            "name": "play-services-base",
-            "module": {
-                "group": "com.google.android.gms",
-                "name": "play-services-base"
-            }
-        },
-        {
-            "group": "com.google.android.gms",
-            "version": "11.0.0",
-            "name": "play-services-clearcut",
-            "module": {
-                "group": "com.google.android.gms",
-                "name": "play-services-clearcut"
-            }
-        },
-        {
-            "group": "com.google.android.gms",
-            "version": "11.0.0",
-            "name": "play-services-basement",
-            "module": {
-                "group": "com.google.android.gms",
-                "name": "play-services-basement"
-            }
-        },
-        {
-            "group": "com.google.android.gms",
-            "version": "11.0.0",
-            "name": "play-services-gass",
-            "module": {
-                "group": "com.google.android.gms",
-                "name": "play-services-gass"
-            }
-        },
-        {
-            "group": "com.google.android.gms",
-            "version": "11.0.0",
-            "name": "play-services-safetynet",
-            "module": {
-                "group": "com.google.android.gms",
-                "name": "play-services-safetynet"
+                "name": "support-annotations"
             }
         },
         {
@@ -264,10 +66,10 @@
         {
             "group": "com.android.support",
             "version": "26.0.0-alpha1",
-            "name": "support-media-compat",
+            "name": "support-core-utils",
             "module": {
                 "group": "com.android.support",
-                "name": "support-media-compat"
+                "name": "support-core-utils"
             }
         },
         {
@@ -282,10 +84,100 @@
         {
             "group": "com.android.support",
             "version": "26.0.0-alpha1",
-            "name": "recyclerview-v7",
+            "name": "support-media-compat",
             "module": {
                 "group": "com.android.support",
-                "name": "recyclerview-v7"
+                "name": "support-media-compat"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "support-v4",
+            "module": {
+                "group": "com.android.support",
+                "name": "support-v4"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "support-vector-drawable",
+            "module": {
+                "group": "com.android.support",
+                "name": "support-vector-drawable"
+            }
+        },
+        {
+            "group": "com.google.android.gms",
+            "version": "11.0.0",
+            "name": "play-services-ads",
+            "module": {
+                "group": "com.google.android.gms",
+                "name": "play-services-ads"
+            }
+        },
+        {
+            "group": "com.google.android.gms",
+            "version": "11.0.0",
+            "name": "play-services-ads-lite",
+            "module": {
+                "group": "com.google.android.gms",
+                "name": "play-services-ads-lite"
+            }
+        },
+        {
+            "group": "com.google.android.gms",
+            "version": "11.0.0",
+            "name": "play-services-base",
+            "module": {
+                "group": "com.google.android.gms",
+                "name": "play-services-base"
+            }
+        },
+        {
+            "group": "com.google.android.gms",
+            "version": "11.0.0",
+            "name": "play-services-basement",
+            "module": {
+                "group": "com.google.android.gms",
+                "name": "play-services-basement"
+            }
+        },
+        {
+            "group": "com.google.android.gms",
+            "version": "11.0.0",
+            "name": "play-services-clearcut",
+            "module": {
+                "group": "com.google.android.gms",
+                "name": "play-services-clearcut"
+            }
+        },
+        {
+            "group": "com.google.android.gms",
+            "version": "11.0.0",
+            "name": "play-services-gass",
+            "module": {
+                "group": "com.google.android.gms",
+                "name": "play-services-gass"
+            }
+        },
+        {
+            "group": "com.google.android.gms",
+            "version": "11.0.0",
+            "name": "play-services-maps",
+            "module": {
+                "group": "com.google.android.gms",
+                "name": "play-services-maps"
+            }
+        },
+        {
+            "group": "com.google.android.gms",
+            "version": "11.0.0",
+            "name": "play-services-safetynet",
+            "module": {
+                "group": "com.google.android.gms",
+                "name": "play-services-safetynet"
             }
         },
         {
@@ -298,21 +190,129 @@
             }
         },
         {
-            "group": "com.android.support",
-            "version": "26.0.0-alpha1",
-            "name": "support-core-utils",
+            "group": "com.google.code.gson",
+            "version": "2.2.4",
+            "name": "gson",
             "module": {
-                "group": "com.android.support",
-                "name": "support-core-utils"
+                "group": "com.google.code.gson",
+                "name": "gson"
             }
         },
         {
-            "group": "com.android.support",
-            "version": "26.0.0-alpha1",
-            "name": "support-annotations",
+            "group": "com.google.guava",
+            "version": "16.0.1",
+            "name": "guava",
             "module": {
-                "group": "com.android.support",
-                "name": "support-annotations"
+                "group": "com.google.guava",
+                "name": "guava"
+            }
+        },
+        {
+            "group": "com.jakewharton",
+            "version": "5.1.1",
+            "name": "butterknife",
+            "module": {
+                "group": "com.jakewharton",
+                "name": "butterknife"
+            }
+        },
+        {
+            "group": "com.nineoldandroids",
+            "version": "2.4.0",
+            "name": "library",
+            "module": {
+                "group": "com.nineoldandroids",
+                "name": "library"
+            }
+        },
+        {
+            "group": "com.squareup",
+            "version": "1.3.5",
+            "name": "otto",
+            "module": {
+                "group": "com.squareup",
+                "name": "otto"
+            }
+        },
+        {
+            "group": "com.squareup.dagger",
+            "version": "1.2.1",
+            "name": "dagger",
+            "module": {
+                "group": "com.squareup.dagger",
+                "name": "dagger"
+            }
+        },
+        {
+            "group": "com.squareup.okhttp",
+            "version": "2.0.0",
+            "name": "okhttp",
+            "module": {
+                "group": "com.squareup.okhttp",
+                "name": "okhttp"
+            }
+        },
+        {
+            "group": "com.squareup.okio",
+            "version": "1.0.0",
+            "name": "okio",
+            "module": {
+                "group": "com.squareup.okio",
+                "name": "okio"
+            }
+        },
+        {
+            "group": "com.squareup.picasso",
+            "version": "2.3.2",
+            "name": "picasso",
+            "module": {
+                "group": "com.squareup.picasso",
+                "name": "picasso"
+            }
+        },
+        {
+            "group": "de.keyboardsurfer.android.widget",
+            "version": "1.8.4",
+            "name": "crouton",
+            "module": {
+                "group": "de.keyboardsurfer.android.widget",
+                "name": "crouton"
+            }
+        },
+        {
+            "group": "javax.inject",
+            "version": "1",
+            "name": "javax.inject",
+            "module": {
+                "group": "javax.inject",
+                "name": "javax.inject"
+            }
+        },
+        {
+            "group": "joda-time",
+            "version": "2.3",
+            "name": "joda-time",
+            "module": {
+                "group": "joda-time",
+                "name": "joda-time"
+            }
+        },
+        {
+            "group": "org.slf4j",
+            "version": "1.7.7",
+            "name": "slf4j-android",
+            "module": {
+                "group": "org.slf4j",
+                "name": "slf4j-android"
+            }
+        },
+        {
+            "group": "org.slf4j",
+            "version": "1.7.7",
+            "name": "slf4j-api",
+            "module": {
+                "group": "org.slf4j",
+                "name": "slf4j-api"
             }
         }
     ]
