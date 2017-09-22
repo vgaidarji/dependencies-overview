@@ -1,6 +1,13 @@
 # Dependencies overview generator plugin
 
 
+TODO
+----
+- [ ] Add more sample integrations projects (Java application, project with modules)
+- [ ] Divide dependencies into groups by project module
+- [ ] Introduce task parameter `should_print_to_console`
+- [ ] Support other project configurations (currently `compile` configuration is analysed)
+
 Developed By
 ------------
 
