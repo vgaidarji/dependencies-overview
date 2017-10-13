@@ -23,6 +23,19 @@ buildscript {
 apply plugin: 'dependencies.overview'
 ```
 
+Configuration
+-------------
+
+Full list of available configuration properties can be found in [DependenciesOverviewExtension](https://github.com/vgaidarji/dependencies-overview/blob/master/dependencies-overview/src/main/kotlin/com/vgaidarji/dependencies/overview/DependenciesOverviewExtension.kt).
+
+```groovy
+dependenciesOverview {
+    output.json = true
+    output.markdown = true
+    output.folder = "build/reports/dependencies" // by default `= null` (project root)
+}
+```
+
 Developed By
 ------------
 
