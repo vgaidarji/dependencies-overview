@@ -1,5 +1,40 @@
 # Dependencies overview generator plugin
 
+Description
+-----------
+
+[Gradle plugin](https://docs.gradle.org/current/userguide/custom_plugins.html) which gathers project dependencies and exports them in `Markdown`/`JSON` format.
+
+
+Installation
+------------
+
+Apply the plugin in your `build.gradle`:
+```groovy
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'com.vgaidarji:dependencies-overview:1.0.0'
+  }
+}
+
+apply plugin: 'dependencies.overview'
+```
+
+Configuration
+-------------
+
+Full list of available configuration properties can be found in [DependenciesOverviewExtension](https://github.com/vgaidarji/dependencies-overview/blob/master/dependencies-overview/src/main/kotlin/com/vgaidarji/dependencies/overview/DependenciesOverviewExtension.kt).
+
+```groovy
+dependenciesOverview {
+    output.json = true
+    output.markdown = true
+    output.folder = "build/reports/dependencies" // by default `= null` (project root)
+}
+```
 
 Developed By
 ------------
@@ -13,6 +48,13 @@ Developed By
   <img alt="Add me to Linkedin" src="http://image.flaticon.com/icons/svg/124/124011.svg" height="40" width="40"/>
 </a>
 
+
+TODO
+----
+- [ ] Add more sample integrations projects (Java application, project with modules)
+- [ ] Divide dependencies into groups by project module
+- [ ] Introduce task parameter `should_print_to_console`
+- [ ] Support other project configurations (currently `compile` configuration is analysed)
 
 License
 -------
