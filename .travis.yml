@@ -1,0 +1,43 @@
+# Disabling sudo moves build to the Container Based Infrastructure on Travis CI
+sudo: false
+
+language: android
+jdk: oraclejdk8
+
+android:
+  components:
+    - platform-tools
+    - tools
+    - build-tools-25.0.3
+    - android-15
+    - android-25
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - extra-android-support
+
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
+script:
+  - ./gradlew :dependencies-overview:build
+  # TODO use artifact in sample projects (not there yet)
+  #- ./gradlew :dependencies-overview:install
+  #- ./gradlew :sample:android-app:dependenciesOverview
+
+env:
+  matrix:
+  - TERM=dumb
+
+notifications:
+  email: true
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle
+    - $HOME/.android
+    - ${TRAVIS_BUILD_DIR}/gradle/caches/
+    - ${TRAVIS_BUILD_DIR}/gradle/wrapper/dists/
