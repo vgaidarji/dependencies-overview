@@ -1,4 +1,4 @@
-package com.vgaidarji.dependencies.overview;
+package com.vgaidarji.dependencies.overview
 
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
@@ -24,19 +24,19 @@ enum class TestArtifact(val group: String, val artifactName: String, val version
     }
 
     private fun toResolvedArtifact(moduleGroup: String = "",
-            moduleName: String = ""): ResolvedArtifact {
+        moduleName: String = ""): ResolvedArtifact {
         val resolvedArtifact = mock<ResolvedArtifact>()
         val moduleVersion = mock<ResolvedModuleVersion>()
         whenever(moduleVersion.id).thenReturn(
-                createModuleVersionIdentifier(group, artifactName, version,
-                        moduleGroup, moduleName)
+            createModuleVersionIdentifier(group, artifactName, version,
+                moduleGroup, moduleName)
         )
         whenever(resolvedArtifact.moduleVersion).thenReturn(moduleVersion)
         return resolvedArtifact
     }
 
     private fun createModuleVersionIdentifier(group: String, name: String, version: String,
-            moduleGroup: String = "", moduleName: String = ""): ModuleVersionIdentifier {
+        moduleGroup: String = "", moduleName: String = ""): ModuleVersionIdentifier {
         return object : ModuleVersionIdentifier {
             override fun getGroup(): String {
                 return group

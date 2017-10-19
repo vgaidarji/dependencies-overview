@@ -21,14 +21,14 @@ open class DependenciesOverviewTask : DefaultTask() {
     @TaskAction
     fun generate() {
         val extension = project.extensions.getByName(DependenciesOverviewPlugin.EXTENSION)
-                as DependenciesOverviewExtension
+            as DependenciesOverviewExtension
         if (extension.output.json) {
             (writers.find { it is JsonWriter } as JsonWriter)
-                    .write(extension.output.folder, artifactsResolver.resolve())
+                .write(extension.output.folder, artifactsResolver.resolve())
         }
         if (extension.output.markdown) {
             (writers.find { it is MarkdownWriter } as MarkdownWriter)
-                    .write(extension.output.folder, artifactsResolver.resolve())
+                .write(extension.output.folder, artifactsResolver.resolve())
         }
     }
 }
