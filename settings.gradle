@@ -1,2 +1,2 @@
 include ':dependencies-overview'
-include ':sample:android-app'
+include ':sample'

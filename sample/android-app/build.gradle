@@ -3,12 +3,16 @@ apply plugin: 'dependencies.overview'
 
 buildscript {
     repositories {
-        mavenLocal()
+        maven {
+            url uri('../../repo')
+        }
     }
+
     dependencies {
-        classpath 'com.vgaidarji:dependencies-overview:1.0.0'
+        classpath "com.vgaidarji:dependencies-overview:${new Properties().load(file("../../dependencies-overview/gradle.properties").newReader())['VERSION_NAME']}"
     }
 }
+
 
 android {
     compileSdkVersion 25

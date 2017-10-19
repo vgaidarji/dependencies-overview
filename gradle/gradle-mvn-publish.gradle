@@ -2,43 +2,52 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 apply plugin: 'org.jetbrains.dokka-android'
 
-version = VERSION_NAME
-group = GROUP
+version = PLUGIN.VERSION_NAME
+group = PLUGIN.GROUP
 
 def isReleaseBuild() {
-    return VERSION_NAME.contains("SNAPSHOT") == false
+    return PLUGIN.VERSION_NAME.contains("SNAPSHOT") == false
 }
 
 uploadArchives {
+    if (project.hasProperty('localDeploy')) {
+        repositories {
+            mavenDeployer {
+                repository(url: uri('../repo'))
+            }
+        }
+        return
+    }
+
     repositories {
         mavenDeployer {
             beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-            pom.groupId = GROUP
-            pom.artifactId = POM_ARTIFACT_ID
-            pom.version = VERSION_NAME
+            pom.groupId = PLUGIN.GROUP
+            pom.artifactId = PLUGIN.POM_ARTIFACT_ID
+            pom.version = PLUGIN.VERSION_NAME
 
 //            repository(url: RELEASE_REPOSITORY_URL)
 //            snapshotRepository(url: SNAPSHOT_REPOSITORY_URL)
 
             pom.project {
-                name POM_NAME
-                packaging POM_PACKAGING
-                description POM_DESCRIPTION
+                name PLUGIN.POM_NAME
+                packaging PLUGIN.POM_PACKAGING
+                description PLUGIN.POM_DESCRIPTION
             }
         }
     }
 
     install {
         repositories.mavenInstaller {
-            pom.groupId = GROUP
-            pom.artifactId = POM_ARTIFACT_ID
-            pom.version = VERSION_NAME
+            pom.groupId = PLUGIN.GROUP
+            pom.artifactId = PLUGIN.POM_ARTIFACT_ID
+            pom.version = PLUGIN.VERSION_NAME
 
             pom.project {
-                name POM_NAME
-                packaging POM_PACKAGING
-                description POM_DESCRIPTION
+                name PLUGIN.POM_NAME
+                packaging PLUGIN.POM_PACKAGING
+                description PLUGIN.POM_DESCRIPTION
             }
         }
     }

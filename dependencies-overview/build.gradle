@@ -1,4 +1,5 @@
 apply plugin: 'kotlin'
+apply plugin: 'groovy'
 apply from: file('ktlint.gradle')
 apply from: file('../gradle/gradle-mvn-publish.gradle')
 
