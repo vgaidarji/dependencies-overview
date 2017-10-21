@@ -22,8 +22,8 @@ open class MarkdownWriter : DependenciesWriter<List<ResolvedModuleVersion>> {
 
     private fun artifactsToMarkdownTable(artifacts: List<ResolvedModuleVersion>): Table {
         val builder = Table.Builder()
-                .withAlignments(Table.ALIGN_LEFT, Table.ALIGN_LEFT)
-                .addRow(GROUP, NAME, VERSION)
+            .withAlignments(Table.ALIGN_LEFT, Table.ALIGN_LEFT)
+            .addRow(GROUP, NAME, VERSION)
         artifacts.forEach {
             builder.addRow(it.id.group, it.id.name, it.id.version)
         }

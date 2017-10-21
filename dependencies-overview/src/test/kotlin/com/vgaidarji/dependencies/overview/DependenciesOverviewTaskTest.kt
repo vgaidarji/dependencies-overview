@@ -3,7 +3,11 @@ package com.vgaidarji.dependencies.overview
 import com.vgaidarji.dependencies.overview.DependenciesOverviewPlugin.Companion.DEPENDENCIES_OVERVIEW_TASK
 import com.vgaidarji.dependencies.overview.writer.JsonWriter
 import com.vgaidarji.dependencies.overview.writer.MarkdownWriter
-import org.amshove.kluent.*
+import org.amshove.kluent.`should equal to`
+import org.amshove.kluent.shouldBeInstanceOf
+import org.amshove.kluent.shouldEqualTo
+import org.amshove.kluent.shouldNotBeBlank
+import org.amshove.kluent.shouldNotBeNull
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Before
