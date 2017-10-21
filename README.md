@@ -1,7 +1,6 @@
 # Dependencies overview generator plugin
 
-Description
------------
+[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 
 [Gradle plugin](https://docs.gradle.org/current/userguide/custom_plugins.html) which gathers project dependencies and exports them in `Markdown`/`JSON` format.
 
@@ -35,6 +34,11 @@ dependenciesOverview {
     output.folder = "build/reports/dependencies" // by default `= null` (project root)
 }
 ```
+
+Development
+------------
+
+This project is written mainly in [Kotlin](https://kotlinlang.org/) and uses [ktlint](https://github.com/shyiko/ktlint) linter.
 
 Developed By
 ------------
