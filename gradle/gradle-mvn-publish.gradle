@@ -1,5 +1,6 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
+apply plugin: 'org.jetbrains.dokka-android'
 
 version = VERSION_NAME
 group = GROUP
@@ -47,4 +48,8 @@ uploadArchives {
         sign configurations.archives
     }
 
+    dokka {
+        outputFormat 'javadoc'
+        outputDirectory "$buildDir/javadoc"
+    }
 }
