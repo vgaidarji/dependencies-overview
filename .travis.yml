@@ -22,10 +22,7 @@ android:
     - 'google-gdk-license-.+'
 
 script:
-  - ./gradlew :dependencies-overview:build
-  # TODO use artifact in sample projects (not there yet)
-  #- ./gradlew :dependencies-overview:install
-  #- ./gradlew :sample:android-app:dependenciesOverview
+  - ./build-install-run.sh
 
 env:
   matrix:
