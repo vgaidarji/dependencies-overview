@@ -2,14 +2,6 @@ apply plugin: 'jacoco'
 
 jacoco {
     toolVersion = "0.7.9"
-    reportsDir = file("$buildDir/reports")
-}
-
-test {
-    jacoco {
-        append = false
-        destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
-    }
 }
 
 jacocoTestReport {

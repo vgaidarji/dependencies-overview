@@ -24,13 +24,15 @@ android:
 script:
   # build plugin
   - ./gradlew :dependencies-overview:build
-  - ./gradlew :dependencies-overview:jacocoTestReport :dependencies-overview:coveralls
   # deploy plugin to local repository
   - ./gradlew :dependencies-overview:uploadArchives -PlocalDeploy
   # run plugin on sample project
   - cd sample-android-app
   - ../gradlew :app:dependenciesOverview
   - cd ..
+
+after_success:
+    - ./gradlew jacocoTestReport coveralls
 
 env:
   matrix:
