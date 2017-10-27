@@ -40,6 +40,20 @@ Development
 
 This project is written mainly in [Kotlin](https://kotlinlang.org/) and uses [ktlint](https://github.com/shyiko/ktlint) linter.
 
+`build-install.sh` and `build-install-run.sh` scripts can be used during local development.
+They contain sequence of `Gradle` commands which help building/installing/running plugin.
+
+**How to build sample projects**
+
+Sample projects use `dependencies-overview` plugin from local repository (`repo` folder in project root).
+
+In order to install plugin to local repository following command should be executed:
+```
+./gradlew :dependencies-overview:uploadArchives -PlocalDeploy
+```
+
+`localDeploy` parameter is used in `gradle/gradle-mvn-publish.gradle` file.
+
 Developed By
 ------------
 
