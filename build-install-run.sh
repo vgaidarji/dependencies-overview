@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+
 ./build-install.sh
-./gradlew :sample:android-app:dependenciesOverview
+cd sample-android-app
+../gradlew :app:dependenciesOverview
+cd ..

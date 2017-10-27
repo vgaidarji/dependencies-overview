@@ -1,18 +1,24 @@
 apply plugin: 'com.android.application'
 apply plugin: 'dependencies.overview'
 
+
 buildscript {
     repositories {
         maven {
             url uri('../../repo')
         }
+        jcenter()
     }
 
     dependencies {
-        classpath "com.vgaidarji:dependencies-overview:${new Properties().load(file("../../dependencies-overview/gradle.properties").newReader())['VERSION_NAME']}"
+        // TODO reuse plugin version from gradle.properties
+        classpath 'com.vgaidarji:dependencies-overview:1.0.0'
     }
 }
 
+repositories {
+    jcenter()
+}
 
 android {
     compileSdkVersion 25
@@ -37,6 +43,7 @@ android {
 dependenciesOverview {
     output.json = true
     output.markdown = true
+    output.folder = "build/reports/dependencies"
 }
 
 dependencies {
