@@ -1,6 +1,6 @@
 # Dependencies overview generator plugin
 
-[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
+[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/) [![Build Status](https://travis-ci.org/vgaidarji/dependencies-overview.svg?branch=vgaidarji%2Fintegrate-with-travis-ci)](https://travis-ci.org/vgaidarji/dependencies-overview)
 
 [Gradle plugin](https://docs.gradle.org/current/userguide/custom_plugins.html) which gathers project dependencies and exports them in `Markdown`/`JSON` format.
 
@@ -39,6 +39,20 @@ Development
 ------------
 
 This project is written mainly in [Kotlin](https://kotlinlang.org/) and uses [ktlint](https://github.com/shyiko/ktlint) linter.
+
+`build-install.sh` and `build-install-run.sh` scripts can be used during local development.
+They contain sequence of `Gradle` commands which help building/installing/running plugin.
+
+**How to build sample projects**
+
+Sample projects use `dependencies-overview` plugin from local repository (`repo` folder in project root).
+
+In order to install plugin to local repository following command should be executed:
+```
+./gradlew :dependencies-overview:uploadArchives -PlocalDeploy
+```
+
+`localDeploy` parameter is used in `gradle/gradle-mvn-publish.gradle` file.
 
 Developed By
 ------------

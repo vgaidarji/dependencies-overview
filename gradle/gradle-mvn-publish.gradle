@@ -10,6 +10,15 @@ def isReleaseBuild() {
 }
 
 uploadArchives {
+    if (project.hasProperty('localDeploy')) {
+        repositories {
+            mavenDeployer {
+                repository(url: uri('../repo'))
+            }
+        }
+        return
+    }
+
     repositories {
         mavenDeployer {
             beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }

@@ -1,2 +1,1 @@
 include ':dependencies-overview'
-include ':sample:android-app'
