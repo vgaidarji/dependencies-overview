@@ -43,6 +43,68 @@ Once everything configured, you can generate dependencies overview report by exe
 
 ![showcase](./art/dependencies-overview-showcase.gif)
 
+Sample reports
+--------------
+
+You can find sample reports in repository root:
+
+- ![DEPENDENCIES-OVERVIEW.md](./DEPENDENCIES-OVERVIEW.md) 
+- ![DEPENDENCIES-OVERVIEW.json](./DEPENDENCIES-OVERVIEW.json)
+
+**JSON**
+```json
+{
+    "dependencies": [
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "animated-vector-drawable",
+            "module": {
+                "group": "com.android.support",
+                "name": "animated-vector-drawable"
+            }
+        },
+        {
+            "group": "com.android.support",
+            "version": "25.3.1",
+            "name": "appcompat-v7",
+            "module": {
+                "group": "com.android.support",
+                "name": "appcompat-v7"
+            }
+        },
+        {
+            "group": "joda-time",
+            "version": "2.3",
+            "name": "joda-time",
+            "module": {
+                "group": "joda-time",
+                "name": "joda-time"
+            }
+        },
+        {
+            "group": "org.slf4j",
+            "version": "1.7.7",
+            "name": "slf4j-android",
+            "module": {
+                "group": "org.slf4j",
+                "name": "slf4j-android"
+            }
+        }
+    ]
+}
+```
+
+**Markdown**
+
+| Group                            | Name                     | Version       |
+| -------------------------------- | ------------------------ | ------------- |
+| com.android.support              | animated-vector-drawable | 25.3.1        |
+| com.android.support              | appcompat-v7             | 25.3.1        |
+| joda-time                        | joda-time                | 2.3           |
+| org.slf4j                        | slf4j-android            | 1.7.7         |
+
+
 Development
 ------------
 
