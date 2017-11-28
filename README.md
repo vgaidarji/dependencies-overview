@@ -35,6 +35,14 @@ dependenciesOverview {
 }
 ```
 
+Once everything configured, you can generate dependencies overview report by executing appropriate Gradle task:
+
+```groovy
+./gradlew dependenciesOverview
+```
+
+![showcase](./art/dependencies-overview-showcase.gif)
+
 Development
 ------------
 
