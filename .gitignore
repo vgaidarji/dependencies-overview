@@ -4,3 +4,4 @@
 build/
 *.iml
 repo/
+local.properties
