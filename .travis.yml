@@ -29,7 +29,7 @@ script:
   # run plugin on sample project
   - cd sample-android-app
   - ../gradlew :app:dependenciesOverview
-  - ../gradlew :app:totalBuildTime
+  - ../gradlew :app:totalBuildTime | grep dependenciesOverview
   - cd ..
 
 after_success:
