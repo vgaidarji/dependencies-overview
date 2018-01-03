@@ -105,6 +105,12 @@ You can find sample reports in repository root:
 | org.slf4j                        | slf4j-android            | 1.7.7         |
 
 
+Execution time
+--------------
+
+On a ![sample Android project](./sample-android-app/app) with ~40 compile time dependencies
+`JSON` & `Markdown` reports generation takes up to ~70 milliseconds, which is very insignificant. 
+
 Development
 ------------
 
