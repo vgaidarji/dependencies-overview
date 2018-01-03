@@ -29,11 +29,11 @@ script:
   # run plugin on sample project
   - cd sample-android-app
   - ../gradlew :app:dependenciesOverview
+  - ../gradlew :app:totalBuildTime
   - cd ..
 
 after_success:
     - ./gradlew jacocoTestReport coveralls
-    - ./gradlew totalBuildTime
 
 env:
   matrix:
