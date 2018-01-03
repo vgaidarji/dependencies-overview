@@ -48,8 +48,8 @@ Sample reports
 
 You can find sample reports in repository root:
 
-- ![DEPENDENCIES-OVERVIEW.md](./DEPENDENCIES-OVERVIEW.md) 
-- ![DEPENDENCIES-OVERVIEW.json](./DEPENDENCIES-OVERVIEW.json)
+- [DEPENDENCIES-OVERVIEW.md](./DEPENDENCIES-OVERVIEW.md) 
+- [DEPENDENCIES-OVERVIEW.json](./DEPENDENCIES-OVERVIEW.json)
 
 **JSON**
 ```json
@@ -108,7 +108,7 @@ You can find sample reports in repository root:
 Execution time
 --------------
 
-On a ![sample Android project](./sample-android-app/app) with ~40 compile time dependencies
+On a [sample Android project](./sample-android-app/app) with ~40 compile time dependencies
 `JSON` & `Markdown` reports generation takes up to ~70 milliseconds, which is very insignificant. 
 
 Development
