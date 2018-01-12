@@ -3,7 +3,7 @@ apply plugin: 'groovy'
 apply from: file('ktlint.gradle')
 apply from: file('jacoco.gradle')
 apply from: file('coveralls.gradle')
-apply from: file('../gradle/gradle-mvn-publish.gradle')
+apply from: file('../gradle/gradle-jcenter-publish.gradle')
 
 sourceCompatibility = 1.8
 
