@@ -18,41 +18,31 @@ apply plugin: 'com.jfrog.bintray'
 
 version = libraryVersion
 
-if (project.hasProperty("android")) { // Android libraries
-    task sourcesJar(type: Jar) {
-        classifier = 'sources'
-        from android.sourceSets.main.java.srcDirs
-    }
-
-    task javadoc(type: Javadoc) {
-        source = android.sourceSets.main.java.srcDirs
-        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    }
-} else { // Java libraries
-    task sourcesJar(type: Jar, dependsOn: classes) {
-        classifier = 'sources'
-        from sourceSets.main.allSource
-    }
-}
-
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
 }
 
-artifacts {
-    archives javadocJar
-    archives sourcesJar
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
 }
 
-// Bintray
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
 Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
+File testFile = new File('local.properties')
+if (testFile.isFile()) {
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+} else {
+    println 'local.properties file not found.'
+}
 
 bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
+    user = properties.hasProperty ("bintray.user") ? properties.getProperty("bintray.user") : System.getenv('BINTRAY_USER')
+    key = properties.hasProperty ("bintray.apikey") ? properties.getProperty("bintray.apikey") : System.getenv('BINTRAY_API_KEY')
     configurations = ['archives']
     pkg {
         repo = bintrayRepo
@@ -66,9 +56,8 @@ bintray {
         version {
             desc = libraryDescription
             gpg {
-                sign = true //Determines whether to GPG sign the files. The default is false
-                passphrase = properties.getProperty("bintray.gpg.password")
-                //Optional. The passphrase for GPG signing'
+                sign = true
+                passphrase = properties.hasProperty ("bintray.gpg.passphrase") ? properties.getProperty("bintray.gpg.passphrase") : System.getenv('BINTRAY_GPG_PASSPHRASE')
             }
         }
     }

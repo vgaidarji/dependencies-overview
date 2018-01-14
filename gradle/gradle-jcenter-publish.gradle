@@ -21,13 +21,11 @@ ext {
     publishedGroupId = 'com.vgaidarji'
     libraryName = 'dependencies-overview'
     artifact = 'dependencies-overview'
-
+    libraryVersion = '1.0.0'
     libraryDescription = 'Generates project dependencies overview report (JSON, Markdown, etc.) from project dependencies'
 
     siteUrl = 'https://github.com/vgaidarji/dependencies-overview'
     gitUrl = 'https://github.com/vgaidarji/dependencies-overview.git'
-
-    libraryVersion = '1.0.0'
 
     developerId = 'vgaidarji'
     developerName = 'Veaceslav Gaidarji'
