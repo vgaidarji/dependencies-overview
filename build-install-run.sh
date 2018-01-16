@@ -7,4 +7,5 @@ set -e
 cd sample-android-app
 ../gradlew :app:clean
 ../gradlew :app:dependenciesOverview
+../gradlew :app:totalBuildTime | grep dependenciesOverview
 cd ..

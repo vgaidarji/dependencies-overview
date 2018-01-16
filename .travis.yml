@@ -28,15 +28,7 @@ before_install:
   - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
 
 script:
-  # build plugin
-  - ./gradlew :dependencies-overview:build
-  # deploy plugin to local repository
-  - ./gradlew :dependencies-overview:uploadArchives -PlocalDeploy
-  # run plugin on sample project
-  - cd sample-android-app
-  - ../gradlew :app:dependenciesOverview
-  - ../gradlew :app:totalBuildTime | grep dependenciesOverview
-  - cd ..
+  - ./build-install-run.sh
 
 after_success:
     - ./gradlew jacocoTestReport coveralls
