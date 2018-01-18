@@ -5,4 +5,4 @@ set -e
 rm -rf repo
 ./gradlew clean
 ./gradlew :dependencies-overview:build
-./gradlew :dependencies-overview:uploadArchives -PlocalDeploy
+./gradlew install -Dmaven.repo.local=repo

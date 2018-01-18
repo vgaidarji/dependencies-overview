@@ -11,12 +11,12 @@ Installation
 Apply the plugin in your `build.gradle`:
 ```groovy
 buildscript {
-  repositories {
-    mavenCentral()
-  }
-  dependencies {
-    classpath 'com.vgaidarji:dependencies-overview:1.0.0'
-  }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.vgaidarji:dependencies-overview:1.0.0'
+    }
 }
 
 apply plugin: 'dependencies.overview'
@@ -119,16 +119,21 @@ This project is written mainly in [Kotlin](https://kotlinlang.org/) and uses [kt
 `build-install.sh` and `build-install-run.sh` scripts can be used during local development.
 They contain sequence of `Gradle` commands which help building/installing/running plugin.
 
-**How to build sample projects**
+- [build-install.sh](./build-install.sh) builds the plugin and installs it into local repository (`repo` folder in project root)
+- [build-install-run.sh](./build-install-run.sh) uses [build-install.sh](./build-install.sh) + runs plugin on sample projects.
 
-Sample projects use `dependencies-overview` plugin from local repository (`repo` folder in project root).
+**How to release**
 
-In order to install plugin to local repository following command should be executed:
+Plugin is published to [jcenter](https://bintray.com/bintray/jcenter) and [Maven Central](https://search.maven.org/) repositories.
+[gradle-jcenter-publish.gradle](./gradle/gradle-jcenter-publish.gradle) is used to publish plugin to `jcenter` and synced to `Maven Central` from there.  
+We need to specify few mandatory properties in `local.properties` file:
+```properties
+bintray.user=
+bintray.apikey=
+bintray.gpg.passphrase=
 ```
-./gradlew :dependencies-overview:uploadArchives -PlocalDeploy
-```
 
-`localDeploy` parameter is used in `gradle/gradle-mvn-publish.gradle` file.
+`./gradlew clean build bintrayUpload -PdryRun=false` command is used to upload signed plugin artifact to `jcenter`.
 
 Developed By
 ------------
