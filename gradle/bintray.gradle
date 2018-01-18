@@ -15,8 +15,10 @@
  * limitations under the License.
  */
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 version = libraryVersion
+group = publishedGroupId
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
@@ -33,8 +35,8 @@ artifacts {
 }
 
 Properties properties = new Properties()
-File testFile = new File('local.properties')
-if (testFile.isFile()) {
+File localProperties = new File('local.properties')
+if (localProperties.isFile()) {
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
 } else {
     println 'local.properties file not found.'
@@ -50,14 +52,50 @@ bintray {
         desc = libraryDescription
         websiteUrl = siteUrl
         vcsUrl = gitUrl
+        issueTrackerUrl = issuesUrl
         licenses = allLicenses
         publish = true
         publicDownloadNumbers = true
         version {
+            name = libraryVersion
             desc = libraryDescription
             gpg {
                 sign = true
                 passphrase = properties.hasProperty("bintray.gpg.passphrase") ? properties.getProperty("bintray.gpg.passphrase") : System.getenv('BINTRAY_GPG_PASSPHRASE')
+            }
+        }
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            packaging 'jar'
+            groupId publishedGroupId
+            artifactId artifact
+
+            name libraryName
+            description libraryDescription
+            url siteUrl
+
+            licenses {
+                license {
+                    name licenseName
+                    url licenseUrl
+                }
+            }
+            developers {
+                developer {
+                    id developerId
+                    name developerName
+                    email developerEmail
+                }
+            }
+            scm {
+                connection gitUrl
+                developerConnection gitUrl
+                url siteUrl
+
             }
         }
     }
