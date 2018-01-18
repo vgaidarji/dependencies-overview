@@ -11,12 +11,12 @@ Installation
 Apply the plugin in your `build.gradle`:
 ```groovy
 buildscript {
-  repositories {
-    jcenter()
-  }
-  dependencies {
-    classpath 'com.vgaidarji:dependencies-overview:1.0.0'
-  }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.vgaidarji:dependencies-overview:1.0.0'
+    }
 }
 
 apply plugin: 'dependencies.overview'
