@@ -41,8 +41,8 @@ if (testFile.isFile()) {
 }
 
 bintray {
-    user = properties.hasProperty ("bintray.user") ? properties.getProperty("bintray.user") : System.getenv('BINTRAY_USER')
-    key = properties.hasProperty ("bintray.apikey") ? properties.getProperty("bintray.apikey") : System.getenv('BINTRAY_API_KEY')
+    user = properties.hasProperty("bintray.user") ? properties.getProperty("bintray.user") : System.getenv('BINTRAY_USER')
+    key = properties.hasProperty("bintray.apikey") ? properties.getProperty("bintray.apikey") : System.getenv('BINTRAY_API_KEY')
     configurations = ['archives']
     pkg {
         repo = bintrayRepo
@@ -57,7 +57,7 @@ bintray {
             desc = libraryDescription
             gpg {
                 sign = true
-                passphrase = properties.hasProperty ("bintray.gpg.passphrase") ? properties.getProperty("bintray.gpg.passphrase") : System.getenv('BINTRAY_GPG_PASSPHRASE')
+                passphrase = properties.hasProperty("bintray.gpg.passphrase") ? properties.getProperty("bintray.gpg.passphrase") : System.getenv('BINTRAY_GPG_PASSPHRASE')
             }
         }
     }
