@@ -26,6 +26,7 @@ ext {
 
     siteUrl = 'https://github.com/vgaidarji/dependencies-overview'
     gitUrl = 'https://github.com/vgaidarji/dependencies-overview.git'
+    issuesUrl = 'https://github.com/vgaidarji/dependencies-overview/issues'
 
     developerId = 'vgaidarji'
     developerName = 'Veaceslav Gaidarji'
@@ -36,5 +37,4 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
-apply from: '../gradle/jcenter/install.gradle'
-apply from: '../gradle/jcenter/bintray.gradle'
+apply from: '../gradle/bintray.gradle'
