@@ -5,7 +5,7 @@
 [Gradle plugin](https://docs.gradle.org/current/userguide/custom_plugins.html) which gathers project dependencies and exports them in `Markdown`/`JSON` format.
 
 
-Installation
+   Installation
 ------------
 
 Apply the plugin in your `build.gradle`:
