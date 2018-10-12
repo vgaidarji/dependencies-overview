@@ -3,6 +3,7 @@ apply plugin: 'com.github.pedrovgs.kuronometer'
 apply plugin: 'dependencies.overview'
 
 buildscript {
+    apply from: '../../gradle/plugin-publish-info.gradle'
     repositories {
         maven {
             url uri('../../repo')
@@ -11,8 +12,7 @@ buildscript {
     }
 
     dependencies {
-        // TODO reuse plugin version to avoid manual version updates
-        classpath 'com.vgaidarji:dependencies-overview:1.0.0'
+        classpath "com.vgaidarji:dependencies-overview:$libraryVersion"
         classpath 'com.github.pedrovgs:kuronometer:0.1.1'
     }
 }
