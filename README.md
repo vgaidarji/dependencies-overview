@@ -1,6 +1,7 @@
 # Dependencies overview generator plugin
 
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/) [![Build Status](https://travis-ci.org/vgaidarji/dependencies-overview.svg?branch=master)](https://travis-ci.org/vgaidarji/dependencies-overview) [![Coverage Status](https://coveralls.io/repos/github/vgaidarji/dependencies-overview/badge.svg?branch=master)](https://coveralls.io/github/vgaidarji/dependencies-overview?branch=master)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvgaidarji%2Fdependencies-overview.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvgaidarji%2Fdependencies-overview?ref=badge_shield)
 
 [Gradle plugin](https://docs.gradle.org/current/userguide/custom_plugins.html) which gathers project dependencies and exports them in `Markdown`/`JSON` format.
 
@@ -157,20 +158,4 @@ TODO
 
 License
 -------
-
-    Copyright 2017 Veaceslav Gaidarji
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
-
-
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvgaidarji%2Fdependencies-overview.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvgaidarji%2Fdependencies-overview?ref=badge_large)
