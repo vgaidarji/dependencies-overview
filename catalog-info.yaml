@@ -11,6 +11,10 @@ metadata:
       url: https://github.com/vgaidarji/dependencies-overview/blob/master/README.md
   annotations:
     github.com/project-slug: vgaidarji/dependencies-overview
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - Kotlin
+    - Gradle
 spec:
   type: library
   owner: vgaidarji

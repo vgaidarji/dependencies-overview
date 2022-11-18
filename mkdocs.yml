@@ -1,0 +1,13 @@
+site_name: 'dependencies-overview-docs'
+site_description: 'Main documentation for Dependencies Overview Gradle plugin'
+repo_url: https://github.com/vgaidarji/dependencies-overview
+
+nav:
+  - README: README.md
+
+plugins:
+  - techdocs-core
+
+theme: readthedocs
+
+docs_dir: '.'
