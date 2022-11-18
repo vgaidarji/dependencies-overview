@@ -5,3 +5,6 @@ build/
 *.iml
 repo/
 local.properties
+
+# MkDocs build output
+site/
