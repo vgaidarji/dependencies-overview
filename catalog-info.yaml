@@ -13,8 +13,8 @@ metadata:
     github.com/project-slug: vgaidarji/dependencies-overview
     backstage.io/techdocs-ref: dir:.
   tags:
-    - Kotlin
-    - Gradle
+    - kotlin
+    - gradle
 spec:
   type: library
   owner: vgaidarji
