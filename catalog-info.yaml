@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: dependencies-overview
+  description: |
+    Gradle plugin which gathers project dependencies and exports them in Markdown/JSON format.
+  links:
+    - title: Website
+      url: https://github.com/vgaidarji/dependencies-overview
+    - title: Documentation
+      url: https://github.com/vgaidarji/dependencies-overview/blob/master/README.md
+  annotations:
+    github.com/project-slug: vgaidarji/dependencies-overview
+spec:
+  type: library
+  owner: vgaidarji
+  lifecycle: experimental
+  
