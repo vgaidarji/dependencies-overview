@@ -1,19 +1,36 @@
+// kotlin-gradle-plugin must be applied for configuration below to work
+// (see https://kotlinlang.org/docs/reference/using-gradle.html)
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    ktlint
+}
+
 dependencies {
-    compile "com.github.shyiko:ktlint:0.10.0"
+    ktlint("com.pinterest:ktlint:0.47.1") {
+        attributes {
+            attribute(Bundling.BUNDLING_ATTRIBUTE, getObjects().named(Bundling, Bundling.EXTERNAL))
+        }
+    }
 }
 
 task ktlint(type: JavaExec, group: "verification") {
     description = "Check Kotlin code style."
-    main = "com.github.shyiko.ktlint.Main"
-    classpath = sourceSets.main.compileClasspath
+    classpath = configurations.ktlint
+    mainClass.set("com.pinterest.ktlint.Main")
     args "src/**/*.kt"
+    // see https://pinterest.github.io/ktlint/install/cli/#command-line-usage for more information
 }
+check.dependsOn ktlint
 
 task ktlintFormat(type: JavaExec, group: "formatting") {
     description = "Fix Kotlin code style deviations."
-    main = "com.github.shyiko.ktlint.Main"
-    classpath = sourceSets.main.compileClasspath
+    classpath = configurations.ktlint
+    mainClass.set("com.pinterest.ktlint.Main")
     args "-F", "src/**/*.kt"
+    // see https://pinterest.github.io/ktlint/install/cli/#command-line-usage for more information
 }
-
-check.dependsOn ktlint

@@ -3,9 +3,9 @@ package com.vgaidarji.dependencies.overview
 import com.vgaidarji.dependencies.overview.DependenciesOverviewPlugin.Companion.DEPENDENCIES_OVERVIEW_TASK
 import com.vgaidarji.dependencies.overview.writer.JsonWriter
 import com.vgaidarji.dependencies.overview.writer.MarkdownWriter
-import org.amshove.kluent.`should equal to`
+import org.amshove.kluent.`should be equal to`
+import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldBeInstanceOf
-import org.amshove.kluent.shouldEqualTo
 import org.amshove.kluent.shouldNotBeBlank
 import org.amshove.kluent.shouldNotBeNull
 import org.gradle.api.Project
@@ -24,13 +24,19 @@ class DependenciesOverviewTaskTest : BaseTest() {
     }
 
     @Test
-    fun `task should be in documentation group`() = "documentation" shouldEqualTo task.group
+    fun `task should be in documentation group`() {
+        "documentation" shouldBeEqualTo task.group.toString()
+    }
 
     @Test
-    fun `task has description`() = task.description.shouldNotBeBlank()
+    fun `task has description`() {
+        task.description?.shouldNotBeBlank()
+    }
 
     @Test
-    fun `task has artifacts resolver`() = task.artifactsResolver.shouldNotBeNull()
+    fun `task has artifacts resolver`() {
+        task.artifactsResolver.shouldNotBeNull()
+    }
 
     @Test
     fun `task contains markdown and JSON writers by default`() {
@@ -43,8 +49,8 @@ class DependenciesOverviewTaskTest : BaseTest() {
         val testJsonWriter = TestJsonWriter()
         with(project) {
             val extension = extensions.findByType(DependenciesOverviewExtension::class.java)
-            extension.output.json = true
-            extension.output.markdown = false
+            extension?.output?.json = true
+            extension?.output?.markdown = false
         }
         task.artifactsResolver = ArtifactsResolver(projectWithArtifacts(TestArtifact.JODA_TIME))
         task.writers = listOf(testJsonWriter)
@@ -64,7 +70,8 @@ class DependenciesOverviewTaskTest : BaseTest() {
                         }
                     }
                 ]
-            }""".trimIndent() `should equal to` testJsonWriter.content
+            }
+        """.trimIndent() `should be equal to` testJsonWriter.content
     }
 
     @Test
@@ -72,8 +79,8 @@ class DependenciesOverviewTaskTest : BaseTest() {
         val testMarkdownWriter = TestMarkdownWriter()
         with(project) {
             val extension = extensions.findByType(DependenciesOverviewExtension::class.java)
-            extension.output.json = false
-            extension.output.markdown = true
+            extension?.output?.json = false
+            extension?.output?.markdown = true
         }
         task.artifactsResolver = ArtifactsResolver(projectWithArtifacts(TestArtifact.JODA_TIME))
         task.writers = listOf(testMarkdownWriter)
@@ -83,7 +90,8 @@ class DependenciesOverviewTaskTest : BaseTest() {
         """
             | Group     | Name      | Version |
             | --------- | --------- | ------- |
-            | joda-time | joda-time | 2.3     |""".trimIndent() `should equal to` testMarkdownWriter.content
+            | joda-time | joda-time | 2.3     |
+        """.trimIndent() `should be equal to` testMarkdownWriter.content
     }
 
     private fun prepareTask() {

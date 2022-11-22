@@ -23,20 +23,26 @@ enum class TestArtifact(val group: String, val artifactName: String, val version
         moduleVersion = resolvedArtifact.moduleVersion
     }
 
-    private fun toResolvedArtifact(moduleGroup: String = "",
-        moduleName: String = ""): ResolvedArtifact {
+    private fun toResolvedArtifact(
+        moduleGroup: String = "",
+        moduleName: String = ""
+    ): ResolvedArtifact {
         val resolvedArtifact = mock<ResolvedArtifact>()
         val moduleVersion = mock<ResolvedModuleVersion>()
         whenever(moduleVersion.id).thenReturn(
-            createModuleVersionIdentifier(group, artifactName, version,
-                moduleGroup, moduleName)
+            createModuleVersionIdentifier(group, artifactName, version, moduleGroup, moduleName)
         )
         whenever(resolvedArtifact.moduleVersion).thenReturn(moduleVersion)
         return resolvedArtifact
     }
 
-    private fun createModuleVersionIdentifier(group: String, name: String, version: String,
-        moduleGroup: String = "", moduleName: String = ""): ModuleVersionIdentifier {
+    private fun createModuleVersionIdentifier(
+        group: String,
+        name: String,
+        version: String,
+        moduleGroup: String = "",
+        moduleName: String = ""
+    ): ModuleVersionIdentifier {
         return object : ModuleVersionIdentifier {
             override fun getGroup(): String {
                 return group
