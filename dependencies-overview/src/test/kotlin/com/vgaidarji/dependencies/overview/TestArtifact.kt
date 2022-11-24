@@ -1,11 +1,11 @@
 package com.vgaidarji.dependencies.overview
 
-import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.whenever
 import org.gradle.api.artifacts.ModuleIdentifier
 import org.gradle.api.artifacts.ModuleVersionIdentifier
 import org.gradle.api.artifacts.ResolvedArtifact
 import org.gradle.api.artifacts.ResolvedModuleVersion
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 
 enum class TestArtifact(val group: String, val artifactName: String, val version: String) {
     JODA_TIME("joda-time", "joda-time", "2.3"),
