@@ -9,6 +9,7 @@ import org.gradle.api.tasks.TaskAction
 open class DependenciesOverviewTask : DefaultTask() {
 
     var writers: List<DependenciesWriter<*>>
+
     var artifactsResolver: ArtifactsResolver
 
     init {
