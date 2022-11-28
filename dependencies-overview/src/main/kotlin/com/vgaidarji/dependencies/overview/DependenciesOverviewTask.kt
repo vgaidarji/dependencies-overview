@@ -4,12 +4,15 @@ import com.vgaidarji.dependencies.overview.writer.DependenciesWriter
 import com.vgaidarji.dependencies.overview.writer.JsonWriter
 import com.vgaidarji.dependencies.overview.writer.MarkdownWriter
 import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
 
 open class DependenciesOverviewTask : DefaultTask() {
 
+    @Internal
     var writers: List<DependenciesWriter<*>>
 
+    @Internal
     var artifactsResolver: ArtifactsResolver
 
     init {

@@ -29,9 +29,17 @@ interface DependenciesWriter<in T> {
      * @param content Content to be written in destination file
      */
     fun writeToFile(folder: String?, fileName: String, content: String) {
-        folder?.let { File(it).mkdirs() }
+        createReportsFolder(folder)
         File(folder, fileName).printWriter().use { out ->
             out.println(content)
+        }
+    }
+
+    private fun createReportsFolder(folder: String?) {
+        if (folder?.let { File(it).isAbsolute } == false) {
+            File(System.getProperty("user.dir") + File.separator + folder).mkdirs()
+        } else {
+            folder?.let { File(it).mkdirs() }
         }
     }
 }

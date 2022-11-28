@@ -1,20 +1,21 @@
 apply plugin: 'maven-publish'
-apply plugin: 'signing'
+apply plugin: 'java'
 
-java {
-    withJavadocJar()
-    withSourcesJar()
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    archiveClassifier.set('javadoc')
+    from javadoc.destinationDir
 }
-//
-//artifacts {
-//    archives javadocJar, sourcesJar
-//}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    archiveClassifier.set('sources')
+}
 
 ext {
     publishedGroupId = 'com.vgaidarji'
     libraryName = 'dependencies-overview'
     artifact = 'dependencies-overview'
-    libraryVersion = '1.0.0.9'
+    libraryVersion = '1.0.0'
     libraryDescription = 'Generates project dependencies overview report (JSON, Markdown, etc.) from project dependencies'
 
     siteUrl = 'https://github.com/vgaidarji/dependencies-overview'
@@ -33,13 +34,14 @@ ext {
 
 publishing {
     publications {
-        maven(MavenPublication) {
+        mavenJava(MavenPublication) {
             groupId = publishedGroupId
             artifactId = artifact
             version = libraryVersion
 
-            artifacts = [javadocJar, sourcesJar]
             from components.java
+            artifact sourcesJar
+            artifact javadocJar
 
             pom {
                 name = libraryName
@@ -73,37 +75,3 @@ javadoc {
         options.addBooleanOption('html5', true)
     }
 }
-
-//Properties properties = new Properties()
-//File localProperties = new File('local.properties')
-//if (localProperties.isFile()) {
-//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-//} else {
-//    println 'local.properties file not found.'
-//}
-
-//// upload to bintray
-//bintray {
-//    user = properties.hasProperty("bintray.user") ? properties.getProperty("bintray.user") : System.getenv('BINTRAY_USER')
-//    key = properties.hasProperty("bintray.apikey") ? properties.getProperty("bintray.apikey") : System.getenv('BINTRAY_API_KEY')
-//    configurations = ['archives']
-//    pkg {
-//        repo = bintrayRepo
-//        name = bintrayName
-//        desc = libraryDescription
-//        websiteUrl = siteUrl
-//        vcsUrl = gitUrl
-//        issueTrackerUrl = issuesUrl
-//        licenses = allLicenses
-//        publish = true
-//        publicDownloadNumbers = true
-//        version {
-//            name = libraryVersion
-//            desc = libraryDescription
-//            gpg {
-//                sign = true
-//                passphrase = properties.hasProperty("bintray.gpg.passphrase") ? properties.getProperty("bintray.gpg.passphrase") : System.getenv('BINTRAY_GPG_PASSPHRASE')
-//            }
-//        }
-//    }
-//}
