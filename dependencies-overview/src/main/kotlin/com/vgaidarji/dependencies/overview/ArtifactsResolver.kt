@@ -6,7 +6,7 @@ import org.gradle.api.artifacts.ResolvedModuleVersion
 /**
  * Default project configuration from where artifacts will be resolved.
  */
-const val DEFAULT_CONFIGURATION = "compile"
+const val DEFAULT_CONFIGURATION = "implementation"
 
 /**
  * Resolves artifacts for given project.
@@ -14,11 +14,15 @@ const val DEFAULT_CONFIGURATION = "compile"
 class ArtifactsResolver(var project: Project) {
     /**
      * Resolves artifacts list for given configuration.
-     * @param configuration default value is "compile" configuration
+     * @param configuration default value is "implementation" configuration
      */
     fun resolve(configuration: String = DEFAULT_CONFIGURATION): List<ResolvedModuleVersion> {
-        val artifacts = mutableListOf<ResolvedModuleVersion>()
+        // https://discuss.gradle.org/t/what-is-a-configuration-which-cant-be-directly-resolved/30721/2
+        try {
+            project.configurations.getByName(configuration).isCanBeResolved = true
+        } catch (_: Exception) {}
         val config = project.configurations.getByName(configuration).resolvedConfiguration
+        val artifacts = mutableListOf<ResolvedModuleVersion>()
         config.resolvedArtifacts.forEach {
             artifacts.add(it.moduleVersion)
         }

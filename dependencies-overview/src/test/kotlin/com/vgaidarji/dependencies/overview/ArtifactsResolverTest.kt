@@ -34,11 +34,18 @@ class ArtifactsResolverTest : BaseTest() {
             GOOGLE_GSON,
             GOOGLE_GUAVA,
             JODA_TIME,
-            SLF4J)
+            SLF4J
+        )
         val sortedArtifactsModules = sortedArtifacts.map { it.moduleVersion }
         val resolver = ArtifactsResolver(
-            projectWithArtifacts(GOOGLE_ANDROID_PLAY_SERVICES_BASE, JODA_TIME,
-                GOOGLE_GUAVA, SLF4J, GOOGLE_ANDROID_PLAY_SERVICES_ADS, GOOGLE_GSON)
+            projectWithArtifacts(
+                GOOGLE_ANDROID_PLAY_SERVICES_BASE,
+                JODA_TIME,
+                GOOGLE_GUAVA,
+                SLF4J,
+                GOOGLE_ANDROID_PLAY_SERVICES_ADS,
+                GOOGLE_GSON
+            )
         )
 
         val artifacts = resolver.resolve()
@@ -50,9 +57,9 @@ class ArtifactsResolverTest : BaseTest() {
         // "joda-time:joda-time"
         // "org.slf4j:slf4j-api"
         sortedArtifactsModules.forEachIndexed { index, version ->
-            assertTrue("Expected artifact ${version.id.group}:${version.id.name} at $index, "
-                + "but was ${artifacts[index].id.group}:${artifacts[index].id.name}",
-                artifacts[index] == version)
+            val expectation = "Expected artifact ${version.id.group}:${version.id.name} at $index, " +
+                "but was ${artifacts[index].id.group}:${artifacts[index].id.name}"
+            assertTrue(expectation, artifacts[index] == version)
         }
     }
 }

@@ -10,7 +10,7 @@ class DependenciesOverviewPlugin : Plugin<Project> {
     }
 
     override fun apply(project: Project) {
-        project.extensions?.create(EXTENSION, DependenciesOverviewExtension::class.java)
-        project.tasks?.create(DEPENDENCIES_OVERVIEW_TASK, DependenciesOverviewTask::class.java)
+        project.extensions.create(EXTENSION, DependenciesOverviewExtension::class.java)
+        project.tasks.create(DEPENDENCIES_OVERVIEW_TASK, DependenciesOverviewTask::class.java)
     }
 }

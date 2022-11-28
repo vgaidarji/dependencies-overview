@@ -1,0 +1,77 @@
+apply plugin: 'maven-publish'
+apply plugin: 'java'
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    archiveClassifier.set('javadoc')
+    from javadoc.destinationDir
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    archiveClassifier.set('sources')
+}
+
+ext {
+    publishedGroupId = 'com.vgaidarji'
+    libraryName = 'dependencies-overview'
+    artifact = 'dependencies-overview'
+    libraryVersion = '1.0.0'
+    libraryDescription = 'Generates project dependencies overview report (JSON, Markdown, etc.) from project dependencies'
+
+    siteUrl = 'https://github.com/vgaidarji/dependencies-overview'
+    gitUrl = 'https://github.com/vgaidarji/dependencies-overview.git'
+    gitUrlNoHttps = 'github.com/vgaidarji/dependencies-overview.git'
+    issuesUrl = 'https://github.com/vgaidarji/dependencies-overview/issues'
+
+    developerId = 'vgaidarji'
+    developerName = 'Veaceslav Gaidarji'
+    developerEmail = 'veaceslav.gaidarji@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+}
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = publishedGroupId
+            artifactId = artifact
+            version = libraryVersion
+
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+
+            pom {
+                name = libraryName
+                description = libraryDescription
+                url = siteUrl
+                licenses {
+                    license {
+                        name = licenseName
+                        url = licenseUrl
+                    }
+                }
+                developers {
+                    developer {
+                        id = developerId
+                        name = developerName
+                        email = developerEmail
+                    }
+                }
+                scm {
+                    connection = "scm:git:git://$gitUrlNoHttps"
+                    developerConnection = "scm:git:ssh://git@$gitUrlNoHttps"
+                    url = gitUrl
+                }
+            }
+        }
+    }
+}
+
+javadoc {
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
