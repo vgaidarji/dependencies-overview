@@ -17,7 +17,8 @@ ext {
     libraryName = 'dependencies-overview'
     artifact = 'dependencies-overview'
     localVersionSuffix = 'local'
-    libraryVersion = "1.0.0"
+    // :bulb: keep sample-android-app/app/build.gradle in sync
+    libraryVersion = "1.0.1"
     libraryVersionString = Boolean.getBoolean("useLocalVersion") ? "$libraryVersion-$localVersionSuffix" : libraryVersion
     libraryDescription = 'Generates project dependencies overview report (JSON, Markdown, etc.) from project dependencies'
 
