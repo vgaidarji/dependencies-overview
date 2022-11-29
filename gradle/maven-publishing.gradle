@@ -1,5 +1,6 @@
 apply plugin: 'maven-publish'
 apply plugin: 'java'
+apply plugin: 'signing'
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     archiveClassifier.set('javadoc')
@@ -69,6 +70,19 @@ publishing {
             }
         }
     }
+    repositories {
+        maven {
+            url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
+            credentials {
+                username sonatypeUsername
+                password sonatypePassword
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
 }
 
 javadoc {

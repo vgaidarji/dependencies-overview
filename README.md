@@ -124,16 +124,21 @@ They contain sequence of `Gradle` commands which help building/installing/runnin
 
 **How to release**
 
-Plugin is published to [jcenter](https://bintray.com/bintray/jcenter) and [Maven Central](https://search.maven.org/) repositories.
-[gradle-jcenter-publish.gradle](./gradle/gradle-jcenter-publish.gradle) is used to publish plugin to `jcenter` and synced to `Maven Central` from there.  
-We need to specify few mandatory properties in `local.properties` file:
+Plugin is published to and [Maven Central](https://search.maven.org/) repository ([Gradle guide](https://central.sonatype.org/publish/publish-gradle)).
+[maven-publishing.gradle](./gradle/maven-publishing.gradle) contains necessary configurations.  
+We need to specify few mandatory properties in global `~/.gradle/gradle.properties` file:
 ```properties
-bintray.user=
-bintray.apikey=
-bintray.gpg.passphrase=
-```
+signing.keyId=
+signing.password=
+signing.secretKeyRingFile=
 
-`./gradlew clean build bintrayUpload -PdryRun=false` command is used to upload signed plugin artifact to `jcenter`.
+sonatypeUsername=
+sonatypePassword=
+```
+Follow [Signatory credentials](https://docs.gradle.org/current/userguide/signing_plugin.html#sec:signatory_credentials) for more details.
+`publishToMavenLocal` task can be used to perform a dry run publishing.
+
+`./gradlew clean build publishMavenJavaPublicationToMavenRepository` command is used to upload signed plugin artifact to [Maven Central](https://search.maven.org/).
 
 Developed By
 ------------
