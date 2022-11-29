@@ -1,5 +1,0 @@
-apply plugin: 'com.github.kt3k.coveralls'
-
-coveralls {
-    sourceDirs = files(sourceSets.main.kotlin.srcDirs).files.absolutePath
-}
