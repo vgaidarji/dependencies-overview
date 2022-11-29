@@ -15,7 +15,9 @@ ext {
     publishedGroupId = 'com.vgaidarji'
     libraryName = 'dependencies-overview'
     artifact = 'dependencies-overview'
-    libraryVersion = '1.0.0'
+    localVersionSuffix = 'local'
+    libraryVersion = "1.0.0"
+    libraryVersionString = Boolean.getBoolean("useLocalVersion") ? "$libraryVersion-$localVersionSuffix" : libraryVersion
     libraryDescription = 'Generates project dependencies overview report (JSON, Markdown, etc.) from project dependencies'
 
     siteUrl = 'https://github.com/vgaidarji/dependencies-overview'
@@ -31,13 +33,12 @@ ext {
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
 }
 
-
 publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId = publishedGroupId
             artifactId = artifact
-            version = libraryVersion
+            version = libraryVersionString
 
             from components.java
             artifact sourcesJar
