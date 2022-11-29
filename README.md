@@ -132,13 +132,19 @@ signing.keyId=
 signing.password=
 signing.secretKeyRingFile=
 
-sonatypeUsername=
-sonatypePassword=
+SONATYPE_USERNAME=
+SONATYPE_PASSWORD=
 ```
 Follow [Signatory credentials](https://docs.gradle.org/current/userguide/signing_plugin.html#sec:signatory_credentials) for more details.
+
+As per https://circleci.com/blog/publishing-java-android-libraries/, 
+following environment variables should be added to Circle CI project environment variables:
+- `ORG_GRADLE_PROJECT_SONATYPE_USERNAME`
+- `ORG_GRADLE_PROJECT_SONATYPE_PASSWORD`
+
 `publishToMavenLocal` task can be used to perform a dry run publishing.
 
-`./gradlew clean build publishMavenJavaPublicationToMavenRepository` command is used to upload signed plugin artifact to [Maven Central](https://search.maven.org/).
+`./gradlew clean build publish` command is used to upload signed plugin artifact to [Maven Central](https://search.maven.org/).
 
 Developed By
 ------------
