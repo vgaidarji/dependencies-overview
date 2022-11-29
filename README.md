@@ -1,6 +1,6 @@
 # Dependencies overview generator plugin
 
-[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/) [![Build Status](https://travis-ci.org/vgaidarji/dependencies-overview.svg?branch=master)](https://travis-ci.org/vgaidarji/dependencies-overview) [![Coverage Status](https://coveralls.io/repos/github/vgaidarji/dependencies-overview/badge.svg?branch=master)](https://coveralls.io/github/vgaidarji/dependencies-overview?branch=master)
+[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/) [![Build Status](https://travis-ci.org/vgaidarji/dependencies-overview.svg?branch=master)](https://travis-ci.org/vgaidarji/dependencies-overview) [![codecov](https://codecov.io/gh/vgaidarji/dependencies-overview/branch/master/graph/badge.svg?token=QufEOkMXri)](https://codecov.io/gh/vgaidarji/dependencies-overview)
 
 [Gradle plugin](https://docs.gradle.org/current/userguide/custom_plugins.html) which gathers project dependencies and exports them in `Markdown`/`JSON` format.
 

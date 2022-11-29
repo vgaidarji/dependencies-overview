@@ -1,0 +1,28 @@
+version: 2.1
+orbs:
+  android: circleci/android@1.0.3
+  codecov: codecov/codecov@3.2.3
+
+jobs:
+  build-and-test:
+    executor:
+      name: android/android-machine
+
+    steps:
+      - checkout
+
+      - run:
+          name: Build, install & run
+          command: ./build-install-run.sh
+
+      - run:
+          name: Gather & upload code coverage
+          command: ./gradlew jacocoTestReport
+      - codecov/upload
+
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+workflows:
+  main:
+    jobs:
+      - build-and-test
