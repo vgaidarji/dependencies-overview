@@ -1,5 +1,6 @@
 apply plugin: 'maven-publish'
 apply plugin: 'java'
+apply plugin: 'signing'
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     archiveClassifier.set('javadoc')
@@ -16,7 +17,8 @@ ext {
     libraryName = 'dependencies-overview'
     artifact = 'dependencies-overview'
     localVersionSuffix = 'local'
-    libraryVersion = "1.0.0"
+    // :bulb: keep sample-android-app/app/build.gradle in sync
+    libraryVersion = "1.0.1"
     libraryVersionString = Boolean.getBoolean("useLocalVersion") ? "$libraryVersion-$localVersionSuffix" : libraryVersion
     libraryDescription = 'Generates project dependencies overview report (JSON, Markdown, etc.) from project dependencies'
 
@@ -69,6 +71,21 @@ publishing {
             }
         }
     }
+    repositories {
+        maven {
+            url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2"
+            credentials {
+                username findProperty('SONATYPE_USERNAME')
+                password findProperty('SONATYPE_PASSWORD')
+            }
+        }
+    }
+}
+
+signing {
+    // do no require signing on Circle CI
+    required { System.getenv("CIRCLECI") == "false" }
+    sign publishing.publications.mavenJava
 }
 
 javadoc {
