@@ -1,7 +1,6 @@
 apply plugin: 'maven-publish'
 apply plugin: 'java'
 apply plugin: 'signing'
-apply plugin: 'io.github.gradle-nexus.publish-plugin'
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     archiveClassifier.set('javadoc')
@@ -74,6 +73,7 @@ publishing {
     }
 }
 
+// io.github.gradle-nexus.publish-plugin
 nexusPublishing {
     repositories {
         sonatype {
