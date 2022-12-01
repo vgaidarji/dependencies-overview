@@ -142,9 +142,11 @@ following environment variables should be added to Circle CI project environment
 - `ORG_GRADLE_PROJECT_SONATYPE_USERNAME`
 - `ORG_GRADLE_PROJECT_SONATYPE_PASSWORD`
 
-`publishToMavenLocal` task can be used to perform a dry run publishing.
+`publishToMavenLocal` task can be used to perform a dry run publishing to local maven repository.
 
-`./gradlew clean build publish` command is used to upload signed plugin artifact to [Maven Central](https://search.maven.org/).
+For automatic publishing from Sonatype Nexus staging repository to release https://github.com/gradle-nexus/publish-plugin/ plugin is used.
+`./gradlew clean build publishToSonatype closeSonatypeStagingRepository` command is used to upload signed plugin artifact to [Maven Central](https://search.maven.org/).
+Publishing may take some time, check https://oss.sonatype.org for new published version.
 
 Developed By
 ------------

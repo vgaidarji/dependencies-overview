@@ -71,13 +71,16 @@ publishing {
             }
         }
     }
+}
+
+// io.github.gradle-nexus.publish-plugin
+nexusPublishing {
     repositories {
-        maven {
-            url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-            credentials {
-                username findProperty('SONATYPE_USERNAME')
-                password findProperty('SONATYPE_PASSWORD')
-            }
+        sonatype {
+            // my acc is registered on https://oss.sonatype.org
+            // and for legacy accs repo url is not required by plugin
+            username = findProperty('SONATYPE_USERNAME')
+            password = findProperty('SONATYPE_PASSWORD')
         }
     }
 }
