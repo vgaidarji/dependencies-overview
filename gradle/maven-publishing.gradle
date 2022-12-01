@@ -1,6 +1,7 @@
 apply plugin: 'maven-publish'
 apply plugin: 'java'
 apply plugin: 'signing'
+apply plugin: 'io.github.gradle-nexus.publish-plugin'
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     archiveClassifier.set('javadoc')
@@ -71,13 +72,15 @@ publishing {
             }
         }
     }
+}
+
+nexusPublishing {
     repositories {
-        maven {
-            url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-            credentials {
-                username findProperty('SONATYPE_USERNAME')
-                password findProperty('SONATYPE_PASSWORD')
-            }
+        sonatype {
+            // my acc is registered on https://oss.sonatype.org
+            // and for legacy accs repo url is not required by plugin
+            username = findProperty('SONATYPE_USERNAME')
+            password = findProperty('SONATYPE_PASSWORD')
         }
     }
 }
