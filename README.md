@@ -12,10 +12,10 @@ Apply the plugin in your `build.gradle`:
 ```groovy
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.vgaidarji:dependencies-overview:1.0.0'
+        classpath 'com.vgaidarji:dependencies-overview:<VERSION>'
     }
 }
 
@@ -145,8 +145,8 @@ following environment variables should be added to Circle CI project environment
 `publishToMavenLocal` task can be used to perform a dry run publishing to local maven repository.
 
 For automatic publishing from Sonatype Nexus staging repository to release https://github.com/gradle-nexus/publish-plugin/ plugin is used.
-`./gradlew clean build publishToSonatype closeSonatypeStagingRepository` command is used to upload signed plugin artifact to [Maven Central](https://search.maven.org/).
-Publishing may take some time, check https://oss.sonatype.org for new published version.
+`./gradlew clean build publishToSonatype closeAndReleaseSonatypeStagingRepository` command is used to upload signed plugin artifact to [Maven Central](https://search.maven.org/).
+Publishing may take some time, check https://oss.sonatype.org for newly published version.
 
 Developed By
 ------------

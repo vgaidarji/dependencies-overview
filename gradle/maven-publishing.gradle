@@ -13,12 +13,11 @@ task sourcesJar(type: Jar) {
 }
 
 ext {
-    publishedGroupId = 'com.vgaidarji'
+    // some fields in nexus-publishing.gradle as required by publish-plugin
     libraryName = 'dependencies-overview'
     artifact = 'dependencies-overview'
     localVersionSuffix = 'local'
     // :bulb: keep sample-android-app/app/build.gradle in sync
-    libraryVersion = "1.0.1"
     libraryVersionString = Boolean.getBoolean("useLocalVersion") ? "$libraryVersion-$localVersionSuffix" : libraryVersion
     libraryDescription = 'Generates project dependencies overview report (JSON, Markdown, etc.) from project dependencies'
 
@@ -69,18 +68,6 @@ publishing {
                     url = gitUrl
                 }
             }
-        }
-    }
-}
-
-// io.github.gradle-nexus.publish-plugin
-nexusPublishing {
-    repositories {
-        sonatype {
-            // my acc is registered on https://oss.sonatype.org
-            // and for legacy accs repo url is not required by plugin
-            username = findProperty('SONATYPE_USERNAME')
-            password = findProperty('SONATYPE_PASSWORD')
         }
     }
 }

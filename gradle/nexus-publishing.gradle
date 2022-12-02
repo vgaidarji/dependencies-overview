@@ -1,0 +1,20 @@
+apply plugin: 'io.github.gradle-nexus.publish-plugin'
+
+ext {
+    publishedGroupId = 'com.vgaidarji'
+    libraryVersion = '1.0.1'
+}
+
+group = publishedGroupId
+version = libraryVersion
+
+nexusPublishing {
+    repositories {
+        sonatype {
+            // my acc is registered on https://oss.sonatype.org
+            // and for legacy accs repo url is not required by plugin
+            username = findProperty('SONATYPE_USERNAME')
+            password = findProperty('SONATYPE_PASSWORD')
+        }
+    }
+}
