@@ -1,4 +1,4 @@
-apply plugin: 'io.github.gradle-nexus.publish-plugin'
+apply from: file('gradle/nexus-publishing.gradle')
 
 buildscript {
     ext.kotlin_version = '1.6.20'
